@@ -1,0 +1,10 @@
+.App {
+  text-align: left;
+  font-weight: 900;
+}
+
+
+li {
+  border: thin dashed gray;
+  border-radius: 0.5rem;
+}
