@@ -1,10 +1,27 @@
 import React from 'react'
+import DataShare from './DataShare'
+import useLocalStorage from '../hook/useLocalStorage'
 import { downloadJson } from '../lib/file'
+import { KEY } from '../constants'
 
 
-export default function Footer({data, setData}) {
+export default function Footer() {
+  const [data, setData] = useLocalStorage(KEY.DATA, {})
+  
+  
   const download = event=>{
     downloadJson(data, 'data.json')
+  }
+
+
+  const reset = event=>{
+    event.preventDefault()
+    
+    const yes = window.confirm('Are you sure?')
+    
+    if (yes) setData({})
+    
+    return false
   }
   
   
@@ -32,10 +49,14 @@ export default function Footer({data, setData}) {
       />
     </label>
     
+    <DataShare data={data} />
+    
     {/* 
     <pre>
       {JSON.stringify(data, null, 2)}
     </pre>
     */}
+
+    <button onClick={reset}>Reset Data</button>
   </footer>
 }

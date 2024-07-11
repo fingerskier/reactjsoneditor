@@ -1,3 +1,8 @@
+const KEY = {
+  DATA: 'DATA',
+}
+
+
 const TYPE = {
   ARRAY: 'array',
   OBJECT: 'object',
@@ -7,5 +12,6 @@ const TYPE = {
 
 
 export {
+  KEY,
   TYPE,
 }

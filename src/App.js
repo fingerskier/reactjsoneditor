@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
 import Footer from './com/Footer'
 import Generic from './com/Item/Generic'
+import useLocalStorage from './hook/useLocalStorage'
+import {KEY} from './constants'
 
 import './App.css'
 
 
 export default function App() {
-  const [data, setData] = useState({name:'asdf',stuff:[1,2,3]})
+  const [data, setData] = useLocalStorage(KEY.DATA, {})
   
   
   return <div className="App">

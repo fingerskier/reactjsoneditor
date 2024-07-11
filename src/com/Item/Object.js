@@ -25,8 +25,8 @@ export default function ObjectItem({data, setData}) {
             <ObjectKey name={key} setName={newKey => {
               const copy = {...data}
               copy[newKey] = copy[key]
-              delete copy[key]
               setData(copy)
+              delete copy[key]
             }} />
             
             :&nbsp;
